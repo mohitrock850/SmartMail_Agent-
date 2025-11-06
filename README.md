@@ -11,7 +11,7 @@
 ---
 
 <p align="center">
-  <img src="./assets/demo.gif" alt="SmartMail Agent Demo" width="800">
+  <img src="./demo.gif" alt="SmartMail Agent Demo" width="800">
 </p>
 
 **SmartMail Agent** is a fully deployed, end-to-end AI assistant living inside **Gmail** — summarizing, analyzing, and replying to emails with human-like precision.  
@@ -21,8 +21,11 @@ It processes encrypted attachments, categorizes emails, and runs 24/7 in the clo
 
 ## 🌐 Live Demos
 
-- 🧠 [Analytics Dashboard]![Analytics Dashboard](./assets/dashboard.png)
-- ⚙️ [API Docs (Swagger UI)]![FastAPI Docs](./assets/fastapi_docs.png)
+- 🧠 [Analytics Dashboard](#)  
+  ![Analytics Dashboard](./dashboard.png)
+
+- ⚙️ [API Docs (Swagger UI)](#)  
+  ![FastAPI Docs](./fastapi_docs.png)
 
 ---
 
@@ -51,9 +54,6 @@ It processes encrypted attachments, categorizes emails, and runs 24/7 in the clo
 - Built-in FastAPI dashboard  
 - Live visualization of email categories (from PostgreSQL)
 
-<p align="center">
-  <img src="./assets/dashboard.png" alt="Analytics Dashboard" width="800">
-</p>
 
 ---
 
