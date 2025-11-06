@@ -1,4 +1,4 @@
-# SmartMail Agent: An AI-Powered Gmail Assistant
+# 📧 SmartMail Agent: An AI-Powered Gmail Assistant
 
 <p align="center">
   <img alt="Python" src="https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white">
@@ -8,53 +8,56 @@
   <img alt="PostgreSQL" src="https://img.shields.io/badge/Database-PostgreSQL-blue?logo=postgresql&logoColor=white">
 </p>
 
+---
+
 <p align="center">
-  <img src="./assets/demo.gif" alt="SmartMail Agent Demo GIF">
+  <img src="./assets/demo.gif" alt="SmartMail Agent Demo" width="800">
 </p>
 
-This is a complete, end-to-end AI assistant that lives directly inside Gmail. It reads, analyzes, and helps you reply to emails by summarizing content, reading attachments (including encrypted files), and drafting intelligent, human-like replies.
+**SmartMail Agent** is a fully deployed, end-to-end AI assistant living inside **Gmail** — summarizing, analyzing, and replying to emails with human-like precision.  
+It processes encrypted attachments, categorizes emails, and runs 24/7 in the cloud.
 
-This project is not just a concept; it is **fully deployed and live**, running 24/7 as a containerized web service that communicates with a live Google Workspace Add-on and a permanent cloud database.
+---
 
-**Live Demos:**
-* **[View the Live Analytics Dashboard](httpss://[YOUR-RENDER-URL-HERE].onrender.com/dashboard)**
-* **[View the Live API Documentation](httpss://[YOUR-RENDER-URL-HERE].onrender.com/docs)**
+## 🌐 Live Demos
+
+- 🧠 [Analytics Dashboard](httpss://[YOUR-RENDER-URL-HERE].onrender.com/dashboard)
+- ⚙️ [API Docs (Swagger UI)](httpss://[YOUR-RENDER-URL-HERE].onrender.com/docs)
 
 ---
 
 ## 🚀 Core Features
 
-* **AI-Powered Summaries:** Uses **LangChain** and **OpenAI (GPT)** to read email content and generate concise summaries and full, human-like draft replies.
-* **Advanced Attachment Processing:** The agent's "brain" can read *inside* attachments:
-    * **Unencrypted Files:** Reads text from `.pdf` and `.docx` files.
-    * **Tables:** Parses tables within documents (`.pdf`, `.docx`) using `camelot-py` and includes the data in its analysis.
-    * **Scanned Images:** Uses **OCR (Tesseract)** to read text from scanned (image-based) PDFs.
-* **Encrypted File Handling:** A core feature of this agent.
-    * Automatically detects password-protected `.pdf` and `.docx` files.
-    * Prompts the user for the password directly within the Gmail add-on.
-    * Securely decrypts the file on the backend using `pikepdf` and `msoffcrypto` to process the hidden content.
-* **"Primary Inbox" Filtering:** Intelligently ignores "Promotions" and "Social" tabs to focus only on important emails.
-* **Categorization & Prioritization:** Assigns a category (e.g., "Work," "Finance") and a priority score to every email.
-* **24/7 Deployment:** Runs as a Docker container on a persistent cloud service (Render).
+| Feature | Description |
+|----------|--------------|
+| 🤖 **AI Summaries** | Generates concise summaries & draft replies via **LangChain + OpenAI (GPT)** |
+| 📎 **Attachment Reader** | Reads text/tables from `.pdf` & `.docx`, even scanned images (OCR via Tesseract) |
+| 🔐 **Encrypted File Support** | Detects & decrypts password-protected PDFs/DOCs (`pikepdf`, `msoffcrypto`) |
+| 📨 **Primary Inbox Focus** | Ignores “Promotions” & “Social” tabs |
+| 🧩 **Categorization** | Auto-labels emails (Work, Finance, etc.) and assigns priority |
+| ☁️ **24/7 Cloud** | Containerized & deployed with **Docker + Render** |
 
-## 🎛️ The Interface
+---
 
-The agent is delivered through two custom UIs:
+## 🖥️ Interface
 
-1.  **Google Workspace Add-on:**
-    * A homepage widget shows a **"Today's Digest"** of top emails.
-    * When an email is opened, the sidebar automatically shows the AI summary, category, and an **editable draft reply**.
-    * Provides a password prompt for encrypted files.
-    * Includes a "Send" button for "human-in-the-loop" approval.
-2.  **Analytics Dashboard:**
-    * A separate web page (served from the same API) that visualizes all processed email data.
-    * Shows a live pie chart of email categories.
+### 📬 Gmail Add-on
+- “**Today’s Digest**” summary view  
+- Auto AI summaries & editable draft replies  
+- Password prompt for encrypted files  
+- Human-in-the-loop “Send” button  
+
+### 📊 Analytics Dashboard
+- Built-in FastAPI dashboard  
+- Live visualization of email categories (from PostgreSQL)
+
+<p align="center">
+  <img src="./assets/dashboard.png" alt="Analytics Dashboard" width="800">
+</p>
 
 ---
 
 ## 🧠 Application Logic Flowchart
-
-This diagram shows the step-by-step logic the agent follows every time you open an email.
 
 ```mermaid
 graph TD
@@ -81,12 +84,88 @@ graph TD
     H --> S[Display Summary & Draft in Gmail];
     D -- Yes --> K;
 
-
-
     style A fill:#D6EAF8,stroke:#3498DB
     style S fill:#D5F5E3,stroke:#2ECC71
     style K fill:#FADBD8,stroke:#E74C3C
-    style N fill:#FADBD8,stroke:#E74C3C
-    style O fill:#FADBD8,stroke:#E74C3C
-    style P fill:#FADBD8,stroke:#E74C3C
-    style Q fill:#FADBD8,stroke:#E74C3C
+```
+
+## 🛠️ Tech Stack & Architecture
+
+| Area | Technology | Purpose |
+|------|-------------|----------|
+| 🧩 **Backend** | Python 3.11, FastAPI | Asynchronous REST API |
+| 🧠 **AI Layer** | LangChain, OpenAI (GPT) | Summarization, classification & reply generation |
+| 🐳 **Deployment** | Docker, Render | Containerization & 24/7 hosting |
+| 🗄️ **Database** | PostgreSQL, SQLAlchemy | Persistent storage & analytics |
+| 💻 **Frontend** | Google Apps Script | Gmail Add-on (native sidebar UI) |
+| 📄 **PDF Parsing** | pikepdf | Secure decryption & text extraction |
+| 📝 **Word Parsing** | python-docx, msoffcrypto | DOCX reading & encryption handling |
+| 📊 **Table Extraction** | camelot-py | Extract tables from PDFs |
+| 🧾 **OCR** | pytesseract, pdf2image | Read scanned (image-based) PDFs |
+| 🔑 **Auth** | Google OAuth 2.0 | Secure Gmail API access |
+
+---
+
+## 📸 Project Showcase
+
+### 🧭 FastAPI Documentation
+<p align="center">
+  <img src="./assets/fastapi_docs.png" alt="FastAPI Docs" width="800">
+</p>
+
+### 📊 Live Analytics Dashboard
+<p align="center">
+  <img src="./assets/dashboard.png" alt="Analytics Dashboard" width="800">
+</p>
+
+---
+
+## 🏃‍♂️ Run Locally
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/[YOUR-USERNAME]/[YOUR-REPO-NAME].git
+cd [YOUR-REPO-NAME]
+```
+
+2️⃣ Create Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate  # (or .\venv\Scripts\activate on Windows)
+```
+
+3️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 🧩 System Dependencies (for OCR & Table Extraction)
+
+| 🖥️ **OS** | ⚙️ **Installation Command** |
+|------------|------------------------------|
+| 🪟 **Windows** | Install **Poppler** + **Tesseract OCR** (add both to your system PATH) |
+| 🍎 **macOS** | `brew install poppler tesseract` |
+| 🐧 **Linux** | `sudo apt-get install poppler-utils tesseract-ocr` |
+
+
+Create a .env file in your project root:
+```bash
+OPENAI_API_KEY="sk-..."
+USER_NAME="Your Name"
+```
+
+🔑 Authenticate Gmail API
+```bash
+python cli.py
+```
+
+🚀 Run the Server
+```bash
+uvicorn main:app --reload
+```
+
+Then open your browser at:
+👉 http://127.0.0.1:8000/docs
+
+<p align="center"> <b>💡 SmartMail Agent — AI at your Inbox!</b> </p>
