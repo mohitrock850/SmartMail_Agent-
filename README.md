@@ -21,8 +21,8 @@ It processes encrypted attachments, categorizes emails, and runs 24/7 in the clo
 
 ## 🌐 Live Demos
 
-- 🧠 [Analytics Dashboard](httpss://[YOUR-RENDER-URL-HERE].onrender.com/dashboard)
-- ⚙️ [API Docs (Swagger UI)](httpss://[YOUR-RENDER-URL-HERE].onrender.com/docs)
+- 🧠 [Analytics Dashboard]![Analytics Dashboard](./assets/dashboard.png)
+- ⚙️ [API Docs (Swagger UI)]![FastAPI Docs](./assets/fastapi_docs.png)
 
 ---
 
