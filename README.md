@@ -106,19 +106,6 @@ graph TD
 
 ---
 
-## 📸 Project Showcase
-
-### 🧭 FastAPI Documentation
-<p align="center">
-  <img src="./assets/fastapi_docs.png" alt="FastAPI Docs" width="800">
-</p>
-
-### 📊 Live Analytics Dashboard
-<p align="center">
-  <img src="./assets/dashboard.png" alt="Analytics Dashboard" width="800">
-</p>
-
----
 
 ## 🏃‍♂️ Run Locally
 
