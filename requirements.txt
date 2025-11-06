@@ -1,0 +1,34 @@
+# Core Google API Libraries
+google-api-python-client
+google-auth-oauthlib
+
+# AI Processing
+openai
+langchain
+langchain-openai
+python-dotenv
+
+flask
+cryptography
+sqlalchemy
+apscheduler
+
+# --- Added for HTML Parsing ---
+beautifulsoup4
+
+# --- Added in Phase 7 (FastAPI) ---
+apscheduler
+fastapi
+uvicorn[standard]
+typer
+
+pypdf
+python-docx
+msoffcrypto-tool
+pikepdf
+pytesseract
+pdf2image
+camelot-py[cv]
+psycopg2-binary
+jinja2
+pandas

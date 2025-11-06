@@ -1,0 +1,18 @@
+# Ignore Python's virtual environment
+venv/
+
+# Ignore Python's cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore our secret .env file (we'll add secrets in the cloud)
+.env
+
+# Ignore the local database (we'll use a new one in the cloud)
+smartmail.db
+smartmail.db-journal
+
+# Ignore IDE/OS files
+.vscode/
+.DS_Store

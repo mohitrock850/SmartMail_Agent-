@@ -1,0 +1,13 @@
+# Python
+/venv
+__pycache__/
+
+# SECRETS 
+.env
+credentials.json
+token.json
+*.json
+
+# Database
+smartmail.db
+smartmail.db-journal

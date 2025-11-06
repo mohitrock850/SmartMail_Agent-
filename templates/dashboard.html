@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMail Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+               background-color: #f4f7f6; color: #333; padding: 20px; }
+        h1 { color: #2a2a2a; }
+        .chart-container { 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>SmartMail Analytics Dashboard</h1>
+    
+    <div class="chart-container">
+        <h3>Email Categories</h3>
+        <canvas id="categoryChart"></canvas>
+    </div>
+
+    <script>
+        // 3. This 'data' variable is injected by FastAPI
+        var chartData = {{ chart_data|tojson }};
+        
+        // 4. Build the chart
+        const ctx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(chartData),
+                datasets: [{
+                    label: 'Email Categories',
+                    data: Object.values(chartData),
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56',
+                        '#4BC0C0',
+                        '#9966FF'
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>
